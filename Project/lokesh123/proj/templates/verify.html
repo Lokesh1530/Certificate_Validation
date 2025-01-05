@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Verify File</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Verify File</h1>
+
+        <!-- File Upload Form -->
+        <form method="POST" enctype="multipart/form-data">
+            <label for="file">Upload File:</label>
+            <input type="file" name="file" id="file" required>
+            <button type="submit">Verify</button>
+        </form>
+
+        <!-- Display Verification Result -->
+        {% if result %}
+        <div class="result">
+            <p>{{ result }}</p>
+            {% if result == "The Certificate is valid." %}
+            <p><strong>Student Name:</strong> {{ student_name }}</p>
+            <p><strong>Roll Number:</strong> {{ roll_number }}</p>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <!-- Hyperlink to Return to Home Page -->
+        <div class="home-link">
+            <a href="/">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
